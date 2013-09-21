@@ -1,0 +1,23 @@
+/* Code copied from http://stackoverflow.com/questions/114543/how-to-center-a-div-in-a-div-horizontally */
+.center-box {
+  /* Firefox */
+  display:-moz-box;
+  -moz-box-pack:center;
+  -moz-box-align:center;
+
+  /* Safari and Chrome */
+  display:-webkit-box;
+  -webkit-box-pack:center;
+  -webkit-box-align:center;
+
+  /* W3C */
+  display:box;
+  box-pack:center;
+  box-align:center;
+}
+
+#profile-name-box {
+  min-width: 100px;
+  width: 15%;
+  margin: 5px;
+}

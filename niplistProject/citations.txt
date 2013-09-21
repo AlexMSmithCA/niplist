@@ -1,0 +1,19 @@
+Citations
+
+Base template derived from Bootstrap's Jumbotron Template
+http://getbootstrap.com/examples/jumbotron/
+
+Base CSS Theme taken from Bootswatch's Spacelab Template
+http://bootswatch.com/spacelab/
+
+Footer HTML derived from Bootstrap's Sticky Footer Example
+http://getbootstrap.com/examples/sticky-footer/
+
+CSS styles for boxed borders from Bootstrap's website
+http://getbootstrap.com/css/
+
+Code snippets for Django implementation from Charlie's private-todo-list Example
+
+Images:
+Smiley Faces: http://kbunge.files.wordpress.com/2013/02/lotsa-smiley-faces1.jpg
+Alex Smith: http://broncotalk.net/wordpress/wp-content/uploads/2013/02/574810_10151461463911100_98991365_n.jpg
