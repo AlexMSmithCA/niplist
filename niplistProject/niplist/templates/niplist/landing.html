@@ -26,6 +26,32 @@
   <body>
     <div id="wrap">
       <div id="overlay">
+        <!-- login-container -->
+        <div id='login-container' class='hidden'>
+          <form method="post" class="form-signin" action="{% url 'django.contrib.auth.views.login' %}">
+            <h2 class="form-signin-heading">Sign in.</h2>
+            {{ form.username }}
+            {{ form.password }}
+            <!--<input type="text" class="form-control" placeholder="Email address" autofocus>
+            <input type="password" class="form-control" placeholder="Password">-->
+            <label class="checkbox">
+              <input type="checkbox" value="remember-me"> Remember me</input>
+            </label>
+            <button class="btn btn-primary btn-block" type="submit">Sign in</button>
+            <a class="btn btn-info btn-block" href="{% url 'niplist.views.register' %}">Register</a>
+            <h6>Forget your password?  Reset it <a href="{% url 'niplist.views.passwordReset' %}">here</a>.</h6>
+            <input type="hidden" name="next" value="{{ next }}" />
+            {% csrf_token %}
+          </form>
+          <div>
+            {% if form.errors %}
+            <p>
+              Incorrect user name and password.
+            </p>
+            {% endif %}
+          </div>
+        </div>
+        <!-- /login-container -->
       </div>
       <div class="navbar navbar-default navbar-fixed-top">
         <div class="container">
@@ -44,11 +70,7 @@
               <li><a href="{% url 'niplist.views.register' %}">Register</a></li>
             </ul>
             <form class="navbar-form navbar-right">
-<<<<<<< HEAD
-              <button type="submit" class="btn btn-primary btn-sm">Sign in  </button>
-=======
               <button type="submit" class="btn btn-primary btn-sm" id='login'>Log in</button>
->>>>>>> 1472e1fe00afc5810ca77b164ab809b100aee430
             </form>
           </div>
           <!--/.navbar-collapse -->
@@ -59,44 +81,13 @@
       <div class="container">
         <div class='prompt'>
           <h1 class='question'>Looking for something to do?</h1>
-          <h2 class='question'>What's the last book you enjoyed reading?</h2>
+          <h2 class='question'></h2>
           <div class='searcher'>
-            <input type='text' class='form-control' placeholder='Your favorite book'></input>
+            <input type='text' class='form-control' placeholder="What's the last book you enjoyed reading?"></input>
           </div>
         </div>
       </div>
       <!-- /container -->
-      <!-- login-container -->
-      <div id='login-container' class='hidden'>
-        <form method="post" class="form-signin" action="{% url 'django.contrib.auth.views.login' %}">
-          <h2 class="form-signin-heading">Sign in.</h2>
-          <div class="form-control">
-            {{ form.username }}
-          </div>
-          <div class="form-control">
-            {{ form.password }}
-          </div>
-          <!--<input type="text" class="form-control" placeholder="Email address" autofocus>
-          <input type="password" class="form-control" placeholder="Password">-->
-          <label class="checkbox">
-            <input type="checkbox" value="remember-me"> Remember me
-          </label>
-          <button class="btn btn-primary btn-block" type="submit">Sign in</button>
-          <a class="btn btn-info btn-block" href="{% url 'niplist.views.register' %}">Register</a>
-          <h6>Forget your password?  Reset it <a href="{% url 'niplist.views.passwordReset' %}">here</a>.</h6>
-          
-          <input type="hidden" name="next" value="{{ next }}" />
-          {% csrf_token %}
-        </form>
-        <div>
-          {% if form.errors %}
-          <p>
-            Incorrect user name and password.
-          </p>
-          {% endif %}
-        </div>
-      </div>
-      <!-- /login-container -->
     </div>
   
     <!-- footer -->
