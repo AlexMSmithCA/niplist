@@ -34,6 +34,7 @@
 						<ul class="nav navbar-nav">
 							<li><a href="{% url 'django.contrib.auth.views.login' %}">Home</a></li>
 							<li class="active"><a href="{% url 'niplist.views.register' %}">Register</a></li>
+              <li class="right-align"><a href="#">Login</a></li>
 						</ul>
 					</div>
 					<!--/.navbar-collapse -->
@@ -53,13 +54,13 @@
 					<button class="btn btn-info btn-block" type="submit">Register</button>
           {% csrf_token %}
         </form>
-        
+
         <div>
           {% for error in errors %}
           <p> {{ error }} </p>
           {% endfor %}
         </div>
-        
+
 			</div>
 			<!-- /container -->
 		</div>

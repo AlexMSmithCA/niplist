@@ -25,6 +25,8 @@
 
   <body>
     <div id="wrap">
+      <div id="overlay">
+      </div>
       <div class="navbar navbar-default navbar-fixed-top">
         <div class="container">
           <div class="navbar-header">
@@ -42,7 +44,11 @@
               <li><a href="{% url 'niplist.views.register' %}">Register</a></li>
             </ul>
             <form class="navbar-form navbar-right">
+<<<<<<< HEAD
               <button type="submit" class="btn btn-primary btn-sm">Sign in  </button>
+=======
+              <button type="submit" class="btn btn-primary btn-sm" id='login'>Log in</button>
+>>>>>>> 1472e1fe00afc5810ca77b164ab809b100aee430
             </form>
           </div>
           <!--/.navbar-collapse -->
@@ -51,6 +57,17 @@
 
       <!-- container -->
       <div class="container">
+        <div class='prompt'>
+          <h1 class='question'>Looking for something to do?</h1>
+          <h2 class='question'>What's the last book you enjoyed reading?</h2>
+          <div class='searcher'>
+            <input type='text' class='form-control' placeholder='Your favorite book'></input>
+          </div>
+        </div>
+      </div>
+      <!-- /container -->
+      <!-- login-container -->
+      <div id='login-container' class='hidden'>
         <form method="post" class="form-signin" action="{% url 'django.contrib.auth.views.login' %}">
           <h2 class="form-signin-heading">Sign in.</h2>
           <div class="form-control">
@@ -79,13 +96,13 @@
           {% endif %}
         </div>
       </div>
-      <!-- /container -->
+      <!-- /login-container -->
     </div>
   
     <!-- footer -->
     <div id="footer">
       <div class="container">
-        <p class="text-muted credit text-center">© 2013 Alex Smith</p>
+        <p class="text-muted credit text-center">© 2013 Niplist</p>
       </div>
     </div>
     <!-- /footer -->
@@ -96,5 +113,9 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="/static/assets/js/jquery.js"></script>
     <script src="/static/assets/js/bootstrap.min.js"></script>
+<<<<<<< HEAD
+=======
+    <script src="/static/assets/js/homepage.js"></script>
+>>>>>>> 1472e1fe00afc5810ca77b164ab809b100aee430
   </body>
 </html>
