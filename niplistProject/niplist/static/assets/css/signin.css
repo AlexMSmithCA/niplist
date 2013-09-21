@@ -1,11 +1,18 @@
+#login-container {
+  opacity: 1;
+  margin-top: 80px;
+}
 .form-signin {
   z-index: 1000;
-  position: absolute;
   background: #fff;
   max-width: 330px;
   padding: 15px;
-  top: 10px;
+  margin: 0 auto;
   border-radius: 7px;
+  opacity: 1 !important;
+}
+.form-singin input {
+  padding: 10px;
 }
 .prompt {
   max-width: 800px;
@@ -14,7 +21,6 @@
 }
 .searcher input {
   max-width: 500px;
-  position: relative;
   margin: 0 auto;
 }
 .form-signin .form-signin-heading,
@@ -47,8 +53,7 @@
   border-top-right-radius: 0;
 }
 #overlay.show {
-  background: #0f0f0f;
-  opacity: 0.8;
+  background: rgba(15, 15, 15, 0.9);
   z-index: 0;
   position: absolute;
   left: 0;
