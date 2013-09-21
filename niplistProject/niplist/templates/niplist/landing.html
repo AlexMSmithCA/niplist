@@ -24,6 +24,29 @@
   </head>
 
   <body>
+  <div id="fb-root"></div>
+  <script>
+    window.fbAsyncInit = function() {
+      // init the FB JS SDK
+      FB.init({
+        appId      : '519431724811205',                        // App ID from the app dashboard
+        channelUrl : 'http://localhost:8000/niplist',          // Channel file for x-domain comms
+        status     : true,                                 // Check Facebook Login status
+        xfbml      : true                                  // Look for social plugins on the page
+      });
+
+      // Additional initialization code such as adding Event Listeners goes here
+    };
+
+    // Load the SDK asynchronously
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "//connect.facebook.net/en_US/all.js";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+  </script>
     <div id="wrap">
       <div id="overlay">
         <!-- login-container -->
@@ -34,12 +57,8 @@
             {{ form.password }}
             <!--<input type="text" class="form-control" placeholder="Email address" autofocus>
             <input type="password" class="form-control" placeholder="Password">-->
-            <label class="checkbox">
-              <input type="checkbox" value="remember-me"> Remember me</input>
-            </label>
             <button class="btn btn-primary btn-block" type="submit">Sign in</button>
             <a class="btn btn-info btn-block" href="{% url 'niplist.views.register' %}">Register</a>
-            <h6>Forget your password?  Reset it <a href="{% url 'niplist.views.passwordReset' %}">here</a>.</h6>
             <input type="hidden" name="next" value="{{ next }}" />
             {% csrf_token %}
           </form>
@@ -104,9 +123,6 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="/static/assets/js/jquery.js"></script>
     <script src="/static/assets/js/bootstrap.min.js"></script>
-<<<<<<< HEAD
-=======
     <script src="/static/assets/js/homepage.js"></script>
->>>>>>> 1472e1fe00afc5810ca77b164ab809b100aee430
   </body>
 </html>
