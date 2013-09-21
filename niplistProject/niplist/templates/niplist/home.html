@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="niplist is awesome!">
+    <meta name="author" content="Alex Smith">
+
+    <title>niplist</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/static/assets/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/static/assets/css/home.css" rel="stylesheet">
+    <link href="/static/assets/css/header.css" rel="stylesheet">
+    <link href="/static/assets/css/sticky-footer.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <div id="wrap">
+      <div class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">niplist</a>
+          </div>
+          <!--.navbar-collapse -->
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="{% url 'niplist.views.home' %}">Home</a></li>
+              <li><a href="#">Profile</a></li>
+              <li><a href="#}">Likes</a></li>
+            </ul>
+            <form method="post" class="navbar-form navbar-right" action="{% url 'django.contrib.auth.views.logout_then_login' %}" role="form">
+              <button type="submit" class="btn btn-primary btn-sm">Sign out</button>
+              {% csrf_token %}
+            </form>
+          </div>
+          <!--/.navbar-collapse -->
+        </div>
+      </div>
+
+      <!-- container -->
+      <div class="container">
+        <div class="col-md-4 inner-container">
+          <div class="inner-row">
+            <div class="panel panel-primary">
+              <div class="panel-body">
+                <div class="input-group">
+                  <input type='text' class='form-control' placeholder="What have you recently enjoyed?">
+                  <span class="input-group-btn">
+                    <button class="btn btn-info" type="button">Go!</button>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="inner-row">
+            <div class="list-group">
+              <h3 class="list-group-item active"> Suggested</h3>
+              <a href="#" class="list-group-item">
+                <img class="inner-thumbnail" src="http://ecx.images-amazon.com/images/I/41BnyLL9T2L._SX260_.jpg" alt="(Image)">
+                <p class="inner-text">Everybody Poops</p>
+              </a>
+              <a href="#" class="list-group-item">
+                <img class="inner-thumbnail" src="http://www.clashmusic.com/sites/default/files/styles/article_feature/public/field/image/the-great-gatsby-2012.jpeg" alt="(Image)">
+                <p class="inner-text">Great Gatsby</p>
+              </a>
+              <a href="#" class="list-group-item">
+                <img class="inner-thumbnail" src="http://ecx.images-amazon.com/images/I/51bvDXCv2wL._BO2,204,203,200_PIsitb-sticker-arrow-click,TopRight,35,-76_AA300_SH20_OU01_.jpg" alt="(Image)">
+                <p class="inner-text">Windows XP for Dummies</p>
+              </a>
+            </div>
+          </div>
+          <div class="inner-row">
+            <button class="btn btn-primary btn-sm" action="#">New List</button>
+          </div>
+        </div>
+        <div class="col-md-8 inner-container">
+          <div class="inner-row">
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+              
+              <ul class="nav nav-pills nav-justified">
+                <li class="first-pill active"><a href="#">All</a></li>
+                <li class="inactive"><a href="#">Lists</a></li>
+                <li class="inactive"><a href="#">Books</a></li>
+                <li class="last-pill inactive"><a href="#">Movies</a></li>
+              </ul>
+              
+              <!--
+                <div class="btn-group">
+                  <button type="button" class="btn btn-primary btn-wide" action="#">All</button>
+                  <button type="button" class="btn btn-primary btn-wide" action="#">Lists</button>
+                  <button type="button" class="btn btn-primary btn-wide" action="#">Books</button>
+                  <button type="button" class="btn btn-primary btn-wide" action="#">Movies</button>
+                </div>
+              -->
+              </div>
+              
+              
+              <div class="panel-body">
+                Like tots what's up bruuuuuthaman?
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /container -->
+    </div>
+  
+    <!-- footer -->
+    <div id="footer">
+      <div class="container">
+        <p class="text-muted credit text-center">© 2013 Niplist</p>
+      </div>
+    </div>
+    <!-- /footer -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/static/assets/js/jquery.js"></script>
+    <script src="/static/assets/js/bootstrap.min.js"></script>
+    <script src="/static/assets/js/homepage.js"></script>
+  </body>
+</html>

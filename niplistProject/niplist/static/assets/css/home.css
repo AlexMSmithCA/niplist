@@ -1,0 +1,66 @@
+.inner-container {
+  padding: 20px;
+}
+
+.inner-container .inner-row {
+  padding: 0px;
+}
+
+.btn-wide {
+  width: 100px;
+}
+
+.nav li.first-pill {
+  border: 1px solid transparent;
+  border-radius: 5px 0 0 5px;
+}
+
+.nav li.last-pill {
+  border: 1px solid transparent;
+  border-radius: 0 5px 5px 0;
+}
+
+.nav li.inactive {
+  border: 1px solid transparent;
+  background-color: #557dac;
+}
+
+.nav li.inactive  a {
+  background-color: #557dac;
+  color: #e0e0e0;
+  font-size: 18px;
+}
+
+.nav .active {
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background-color: #eeeeee;
+}
+
+.nav li.active  a {
+  background-color: #eeeeee;
+  color: #557dac;
+  font-size: 18px;
+}
+
+.inner-thumbnail {
+  height: 50px;
+  width: 50px;
+  display: inline-block;
+}
+
+.inner-text {
+  display: inline-block;
+}
+
+.list {
+}
+
+.list .list-row {
+}
+
+.list .list-row .image {
+}
+
+.list .list-row .p {
+}
