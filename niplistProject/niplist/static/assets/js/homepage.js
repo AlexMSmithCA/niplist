@@ -1,4 +1,8 @@
+var util = require('util'),
+  OperationHelper = require('apac').OperationHelper;
+
 window.onload = function(){
+
   $('#login').bind('click', function(e){
     e.preventDefault();
     FB.login(function(response) {
