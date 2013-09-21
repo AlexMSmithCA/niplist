@@ -13,4 +13,5 @@ urlpatterns = patterns("",
     url(r"^register$", "niplist.views.register"),
     
     # Webapp routes
+    url(r"^home$", "niplist.views.home"),
 )

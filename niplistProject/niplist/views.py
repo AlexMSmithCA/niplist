@@ -66,3 +66,11 @@ def register(request):
   login(request, new_user)
   
   return render(request, 'niplist/my-stream.html', context)
+
+def home(request):
+  """ Displays the user's home page """
+  context = {}
+  errors = []
+  context['errors'] = errors
+  
+  return render(request, "niplist/home.html", context)
