@@ -16,10 +16,9 @@ urlpatterns = patterns("",
     
     # Webapp routes
     url(r"^home$", "niplist.views.home"),
-    
     # Middlewear routes
     url(r'^fb/', facebook_view, name='fb_app'),
     #url(r'^close_login_popup/$', close_login_popup, name='login_popup_close'),
-    
     url(r'', include('social_auth.urls')),
+    url(r"^profile$", "niplist.views.profile"),
 )

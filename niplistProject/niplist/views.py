@@ -110,3 +110,11 @@ def home(request):
   context['errors'] = errors
   
   return render(request, "niplist/home.html", context)
+
+def profile(request):
+  """ Displays the user's profile page """
+  context = {}
+  errors = []
+  context['errors'] = errors
+
+  return render(request, "niplist/profile.html", context)
