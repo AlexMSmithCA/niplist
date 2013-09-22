@@ -11,14 +11,24 @@ class Profile(models.Model):
 
     def __unicode__(self):
         return self.user.username
-
-
+	
+	"""
+	def __eq__(self, profile):
+		if self == profile: 
+			return True
+		if user = profile.user and fbId = profile.fbId:
+			return True
+			
+	def __ne__(self, profile):
+		return not self.__eq__(profile)
+	"""
+	
 # generic book, movie, etc. Just has title
 class Item(models.Model):
+    ASIN = models.CharField(max_length=200, primary_key=True)
     title = models.CharField(max_length=200)
-
     def __unicode__(self):
-        return self.title
+        return self.ASIN + ":" + self.title
 
 # links ItemList to all items in that list
 class ItemListSet(models.Model):
@@ -41,11 +51,16 @@ class ItemList(models.Model):
     def __unicode__(self):
         return self.user.username + ":" + self.title
 
+class ItemPreference(models.Model):
+	item = models.ForeignKey("Item")
+    preference = models.BooleanField() # 0 is dislike, 1 is like
+	def __unicode__(self):
+		return item.Title + ":" + self.preference
+	
 # links user to the things a user rated
 class UserItemSet(models.Model):
     profile = models.OneToOneField(Profile)
-    items = models.ManyToManyField("Item")
-    preference = models.BooleanField() # 0 is dislike, 1 is like
+    itemPreference = models.ForeignKey("ItemPreference")
 
     def __unicode__(self):
         return self.user.username + self.items

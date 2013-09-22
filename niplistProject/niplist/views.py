@@ -22,7 +22,39 @@ def passwordReset(request):
   # STUFF
   context = {'errors' : errors}
   return render(request, 'niplist/password-reset.html', context) 
-
+  
+def recommendItemsFromItem(request):
+	context = {}
+	errors = []
+	context['errors'] = errors
+	# assume the input are good now
+	
+    numObjects = request.POST['k']
+    amazonId = request.POST['ASIN']
+    itemsList = Item.object.filter(ASIN=amazonId)
+    userItemSet = UserItemSet.object.filter(itempreference__item__in=itemsList)\
+                    .filter(itempreference__preference=True)# all
+    profiles = []
+    for userItem in userItemSet:
+        profiles.append(userItemSet.profile)
+    
+    userItemSetList = UserItemSet.object.filter(profile__in=profiles)
+    itemFrequency = {}
+    for userItemSet in userItemSetList:
+        tempAsin = userItemSet.itemPreference.item.ASIN
+        if tempAsin not in itemFrequency.keys():
+            itemFrequency[tempAsin] = 0
+        newFreq = itemFrequency[tempAsin]
+        newFreq = newFreq + 2 if userItemSet.itemPreference.preference == True else newFreq - 2
+        itemFrequency[tempAsin] = newFreq;
+    
+    sorted(itemFrequency.items(), key=lambda x[1]: x, reverse=True)
+    keys = itemFrequency.keys()[:numObjects]
+    returnItems = Item.object.filter(ASIN__in=keys)
+    context['items'] = returnItems
+    return render(request, 'niplist/item.html', context)
+    
+  
 # Adapted from Dr. Garrod's private-todo-list example
 def register(request):
   """ Register's a new user and ensures the information is valid """
