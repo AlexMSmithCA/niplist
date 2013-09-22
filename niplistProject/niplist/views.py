@@ -20,21 +20,20 @@ def passwordReset(request):
   return render(request, 'niplist/password-reset.html', context) 
   
 def recommendItemsFromItem(request):
-	context = {}
-	errors = []
-	context['errors'] = errors
-	# assume the input are good now
+    context = {}
+    errors = []
+    context['errors'] = errors
+    # assume the input are good now
 	
     numObjects = request.POST['k']
     amazonId = request.POST['ASIN']
-    itemsList = Item.object.filter(ASIN=amazonId)
-    userItemSet = UserItemSet.object.filter(itempreference__item__in=itemsList)\
+    userItemSet = UserItemSet.objects.filter(itempreference__item__ASIN=amazonId)\
                     .filter(itempreference__preference=True)# all
     profiles = []
     for userItem in userItemSet:
-        profiles.append(userItemSet.profile)
+        profiles.append(userItem.profile)
     
-    userItemSetList = UserItemSet.object.filter(profile__in=profiles)
+    userItemSetList = UserItemSet.objects.filter(profile__in=profiles)
     itemFrequency = {}
     for userItemSet in userItemSetList:
         tempAsin = userItemSet.itemPreference.item.ASIN
@@ -42,11 +41,11 @@ def recommendItemsFromItem(request):
             itemFrequency[tempAsin] = 0
         newFreq = itemFrequency[tempAsin]
         newFreq = newFreq + 2 if userItemSet.itemPreference.preference == True else newFreq - 2
-        itemFrequency[tempAsin] = newFreq;
+        itemFrequency[tempAsin] = newFreq
     
-    sorted(itemFrequency.items(), key=lambda x[1]: x, reverse=True)
-    keys = itemFrequency.keys()[:numObjects]
-    returnItems = Item.object.filter(ASIN__in=keys)
+    itemList = sorted(itemFrequency.items(), key=lambda x:x[1], reverse=True)
+    itemKeys = map(lambda x:x[0], itemList)[:numObjects]
+    returnItems = Item.objects.filter(ASIN__in=keys)
     context['items'] = returnItems
     return render(request, 'niplist/item.html', context)
     
