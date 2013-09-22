@@ -13,6 +13,10 @@ from django.contrib.auth import login, authenticate
 
 from niplist.models import *
 
+@login_required
+def newsfeed(request):
+  pass
+
 def passwordReset(request):
   errors = ["DOES NOT WORK"]
   # STUFF

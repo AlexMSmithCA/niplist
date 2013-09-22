@@ -1,5 +1,7 @@
 from django.conf.urls import patterns, include, url
 
+from niplist.facebook import facebook_view
+
 # Generates the routes for the Controller.
 # Typical use is a regular expression for a URL pattern, and then the
 # action to call to process requests for that URL pattern.
@@ -14,4 +16,10 @@ urlpatterns = patterns("",
     
     # Webapp routes
     url(r"^home$", "niplist.views.home"),
+    
+    # Middlewear routes
+    url(r'^fb/', facebook_view, name='fb_app'),
+    #url(r'^close_login_popup/$', close_login_popup, name='login_popup_close'),
+    
+    url(r'', include('social_auth.urls')),
 )
